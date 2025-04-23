@@ -1,0 +1,39 @@
+# Node
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+
+# Build
+.next
+out
+dist
+.cache
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+
+# VS Code settings
+.vscode/
+
+# Test
+coverage
+
+# MacOS/Windows artifacts
+Icon?
+Desktop.ini
+
+# Misc
+*.local
