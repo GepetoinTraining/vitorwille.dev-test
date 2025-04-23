@@ -8,7 +8,6 @@ const posts = [
   }
 ]
 
-// Tipagem inline (sem interface externa)
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const post = posts.find((p) => p.id === params.id)
   if (!post) return notFound()
@@ -24,3 +23,4 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     </main>
   )
 }
+
