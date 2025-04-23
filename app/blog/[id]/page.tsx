@@ -27,5 +27,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
 // ✅ Suporte para build estático
 export async function generateStaticParams() {
-  return posts.map((post) => ({ id: post.id }))
+  return posts.map((post) => ({
+    id: post.id,
+  }));
 }
