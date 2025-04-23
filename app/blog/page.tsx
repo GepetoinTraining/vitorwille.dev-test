@@ -1,47 +1,36 @@
-"use client"
+// ✅ Página de blog com posts lidos de um JSON local (simulado)
 
-import { MotionSection } from "@/components/animations/motion"
-import { ProjectCard } from "@/components/elements/ProjectCard"
-import { SnippetBlock } from "@/components/elements/SnippetBlock"
+import posts from "@/data/posts"
+import Link from "next/link"
 
-export default function HomePage() {
+export default function BlogPage() {
   return (
-    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 space-y-16">
-      {/* HERO */}
-      <MotionSection
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center space-y-4"
-      >
-        <h1 className="text-4xl sm:text-5xl font-bold text-primary">
-          Vitor Wille
-        </h1>
-        <p className="text-muted max-w-xl mx-auto">
-          Um espaço para construir, testar e compartilhar ideias com alma de dev.
-        </p>
-      </MotionSection>
-
-      {/* PROJETOS DESTAQUE */}
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold">🧱 Últimos Projetos</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ProjectCard title="Portfólio Pessoal" stack={["Next.js", "Tailwind"]} description="Site pessoal com animações e estrutura modular." />
-          <ProjectCard title="Blog de Dev Logs" stack={["MDX", "Framer Motion"]} description="Dev logs rápidos, escritos com intenção." />
-        </div>
-      </section>
-
-      {/* SNIPPETS */}
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold">🧩 Snippets Recentes</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <SnippetBlock code={`npx create-next-app@latest`} language="bash" />
-          <SnippetBlock code={`const foo = () => \"bar\"`} language="ts" />
-        </div>
-      </section>
+    <main className="max-w-3xl mx-auto px-4 py-16 space-y-10">
+      <h1 className="text-3xl font-bold text-primary">Dev Logs</h1>
+      <ul className="space-y-6">
+        {posts.map((post) => (
+          <li key={post.id} className="border-b border-border pb-4">
+            <Link href={`/blog/${post.id}`} className="text-xl font-semibold hover:text-primary">
+              {post.title}
+            </Link>
+            <p className="text-muted-foreground text-sm mt-1">{post.preview}</p>
+          </li>
+        ))}
+      </ul>
     </main>
   )
 }
 
-export const dynamic = "force-dynamic"
-export const dynamicParams = true
+// ➕ Criar arquivo src/data/posts.ts
+// export default [
+//   {
+//     id: "primeiro-post",
+//     title: "Primeiro Dev Log",
+//     preview: "Uma reflexão rápida sobre construir enquanto se aprende...",
+//     content: `...
+//     multiline
+//     string
+//     ...`
+//   },
+//   ...
+// ]

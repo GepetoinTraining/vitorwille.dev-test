@@ -1,18 +1,9 @@
+// ✅ Página de post individual lido de um JSON local
+
 import { notFound } from "next/navigation"
+import posts from "@/data/posts"
 
-const posts = [
-  {
-    id: "primeiro-post",
-    title: "Primeiro Dev Log",
-    content: `Este é o primeiro post publicado por Vitor Wille. Um lugar para registrar ideias, aprendizados e dúvidas.\n\nA proposta é ser breve, prático e honesto.`,
-  },
-]
-
-type Props = {
-  params: { id: string }
-}
-
-export default function Page({ params }: Props) {
+export default function BlogPostPage({ params }: { params: { id: string } }) {
   const post = posts.find((p) => p.id === params.id)
   if (!post) return notFound()
 
@@ -28,8 +19,7 @@ export default function Page({ params }: Props) {
   )
 }
 
+// Requer geração estática dos caminhos
 export async function generateStaticParams() {
-  return posts.map((post) => ({
-    id: post.id,
-  }))
+  return posts.map((post) => ({ id: post.id }))
 }
