@@ -4,8 +4,8 @@ const posts = [
   {
     id: "primeiro-post",
     title: "Primeiro Dev Log",
-    content: `Este é o primeiro post publicado por Vitor Wille. Um lugar para registrar ideias, aprendizados e dúvidas.\n\nA proposta é ser breve, prático e honesto.`
-  }
+    content: `Este é o primeiro post publicado por Vitor Wille. Um lugar para registrar ideias, aprendizados e dúvidas.\n\nA proposta é ser breve, prático e honesto.`,
+  },
 ]
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
@@ -24,4 +24,5 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
   )
 }
 
-export const dynamicParams = true;
+export const dynamic = "force-dynamic"
+export const dynamicParams = true
