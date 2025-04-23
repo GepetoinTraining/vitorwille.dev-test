@@ -42,3 +42,6 @@ export default function HomePage() {
     </main>
   )
 }
+
+export const dynamic = "force-dynamic"
+export const dynamicParams = true
