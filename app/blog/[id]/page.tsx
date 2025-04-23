@@ -6,10 +6,13 @@ const posts = [
     title: "Primeiro Dev Log",
     content: `Este é o primeiro post publicado por Vitor Wille. Um lugar para registrar ideias, aprendizados e dúvidas.\n\nA proposta é ser breve, prático e honesto.`,
   },
-  // Adicione mais posts aqui conforme necessário
 ]
 
-export default function BlogPostPage({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string }
+}
+
+export default function Page({ params }: Props) {
   const post = posts.find((p) => p.id === params.id)
   if (!post) return notFound()
 
@@ -25,9 +28,8 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
   )
 }
 
-// ✅ Suporte para build estático
 export async function generateStaticParams() {
   return posts.map((post) => ({
     id: post.id,
-  }));
+  }))
 }
