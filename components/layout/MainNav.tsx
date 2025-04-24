@@ -9,8 +9,7 @@ const links = [
   { href: "/", label: "Início" },
   { href: "/about", label: "Sobre" },
   { href: "/projects", label: "Projetos" },
-  { href: "/snippets", label: "Snippets" },
-  { href: "/blog", label: "Dev Logs" },
+  { href: "/snippets", label: "Snippets" }
 ]
 
 export function MainNav() {
