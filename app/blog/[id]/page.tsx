@@ -1,9 +1,13 @@
-// ✅ Página de post individual lido de um JSON local
+// ✅ Página de post individual com `generateStaticParams` seguro para Vercel e Next.js App Router
 
 import { notFound } from "next/navigation"
-import posts from "@/app/data/posts"
+import posts from "app/data/posts"
 
-export default function BlogPostPage({ params }: { params: { id: string } }) {
+export async function generateStaticParams() {
+  return posts.map((post) => ({ id: post.id }))
+}
+
+export default async function Page({ params }: { params: { id: string } }) {
   const post = posts.find((p) => p.id === params.id)
   if (!post) return notFound()
 
@@ -17,9 +21,4 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
       </div>
     </main>
   )
-}
-
-// Requer geração estática dos caminhos
-export async function generateStaticParams() {
-  return posts.map((post) => ({ id: post.id }))
 }
