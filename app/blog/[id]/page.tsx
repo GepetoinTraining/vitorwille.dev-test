@@ -1,7 +1,7 @@
 // ✅ Página de post individual lido de um JSON local
 
 import { notFound } from "next/navigation"
-import posts from "@/data/posts"
+import posts from "@/app/data/posts"
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const post = posts.find((p) => p.id === params.id)
