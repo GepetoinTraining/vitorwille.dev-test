@@ -1,6 +1,6 @@
 // ✅ Página de blog com posts lidos de um JSON local (simulado)
 
-import posts from "@/data/posts"
+import posts from "@/app/data/posts"
 import Link from "next/link"
 
 export default function BlogPage() {
